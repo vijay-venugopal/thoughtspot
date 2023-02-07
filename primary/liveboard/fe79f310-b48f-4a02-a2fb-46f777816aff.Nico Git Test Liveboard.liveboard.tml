@@ -1,0 +1,319 @@
+guid: fe79f310-b48f-4a02-a2fb-46f777816aff
+liveboard:
+  name: Nico Git Test Liveboard
+  visualizations:
+  - id: Viz_1
+    answer:
+      name: Total Discount by Container and Category
+      tables:
+      - id: Parameters WS
+        name: Parameters WS
+      search_query: "[Category] [Container] [Discount]"
+      answer_columns:
+      - name: Category
+      - name: Container
+      - name: Total Discount
+      table:
+        table_columns:
+        - column_id: Category
+          headline_aggregation: COUNT_DISTINCT
+        - column_id: Container
+          headline_aggregation: COUNT_DISTINCT
+        - column_id: Total Discount
+          headline_aggregation: SUM
+        ordered_column_ids:
+        - Category
+        - Container
+        - Total Discount
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: STACKED_COLUMN
+        chart_columns:
+        - column_id: Category
+        - column_id: Container
+        - column_id: Total Discount
+        axis_configs:
+        - x:
+          - Container
+          "y":
+          - Total Discount
+          color:
+          - Category
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {}},\"axisProperties\": [{\"id\": \"92a5a034-bc3f-4a29-b617-e3391a33b2ae\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Discount\"],\"isOpposite\": false}},{\"id\": \"01049273-3188-4180-8b03-8dc36bde258c\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Container\"]}}],\"systemSeriesColors\": [{\"serieName\": \"mfgr#11\",\"color\": \"#47515F\"},{\"serieName\": \"mfgr#12\",\"color\": \"#BEC6D0\"},{\"serieName\": \"mfgr#13\",\"color\": \"#747E8C\"},{\"serieName\": \"mfgr#14\",\"color\": \"#C26232\"},{\"serieName\": \"mfgr#15\",\"color\": \"#FFCCB3\"},{\"serieName\": \"mfgr#21\",\"color\": \"#FF8142\"},{\"serieName\": \"mfgr#22\",\"color\": \"#6A4ABA\"},{\"serieName\": \"mfgr#23\",\"color\": \"#D1C0FB\"},{\"serieName\": \"mfgr#24\",\"color\": \"#8C62F5\"},{\"serieName\": \"mfgr#25\",\"color\": \"#56D3A8\"},{\"serieName\": \"mfgr#31\",\"color\": \"#049160\"},{\"serieName\": \"mfgr#32\",\"color\": \"#9BE5CB\"},{\"serieName\": \"mfgr#33\",\"color\": \"#06BF7F\"},{\"serieName\": \"mfgr#34\",\"color\": \"#FCD977\"},{\"serieName\": \"mfgr#35\",\"color\": \"#BF982A\"},{\"serieName\": \"mfgr#41\",\"color\": \"#FDE9AF\"},{\"serieName\": \"mfgr#42\",\"color\": \"#FCC838\"},{\"serieName\": \"mfgr#43\",\"color\": \"#82DFE9\"},{\"serieName\": \"mfgr#44\",\"color\": \"#369FAA\"},{\"serieName\": \"mfgr#45\",\"color\": \"#B5ECF2\"},{\"serieName\": \"mfgr#51\",\"color\": \"#48D1E0\"},{\"serieName\": \"mfgr#52\",\"color\": \"#71A1F4\"},{\"serieName\": \"mfgr#53\",\"color\": \"#2359B6\"},{\"serieName\": \"mfgr#54\",\"color\": \"#ABC7F9\"},{\"serieName\": \"mfgr#55\",\"color\": \"#2E75F0\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: d0f691c0-d40c-494e-a913-fb3db7105d74
+  - id: Viz_2
+    answer:
+      name: Basic Answer 1
+      description: This is basic answer with table and headline visualizations.
+      tables:
+      - id: LINEORDER
+        name: LINEORDER
+      - id: PART
+        name: PART
+      joins:
+      - id: Lineorder PartKey - Part PartKey
+        name: Lineorder PartKey - Part PartKey
+        source: LINEORDER
+        destination: PART
+      table_paths:
+      - id: LINEORDER_1
+        table: LINEORDER
+        join_path:
+        - {}
+      - id: PART_1
+        table: PART
+        join_path:
+        - join:
+          - Lineorder PartKey - Part PartKey
+      search_query: "[LINEORDER_1::Revenue] [PART_1::Color]"
+      answer_columns:
+      - name: Total Revenue
+      - name: Color
+      table:
+        table_columns:
+        - column_id: Color
+          headline_aggregation: COUNT_DISTINCT
+        - column_id: Total Revenue
+          headline_aggregation: SUM
+        ordered_column_ids:
+        - Color
+        - Total Revenue
+        client_state: "{\"widthState\":{},\"wrapTableHeader\":true}"
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\",\"wrapTableHeader\": true,\"columnProperties\": [{\"columnId\": \"Color\",\"columnProperty\": {}},{\"columnId\": \"Total Revenue\",\"columnProperty\": {}}]}"
+      chart:
+        type: COLUMN
+        chart_columns:
+        - column_id: Color
+        - column_id: Total Revenue
+        axis_configs:
+        - x:
+          - Color
+          "y":
+          - Total Revenue
+        client_state: "{\"chartProperties\":{\"gridLines\":{},\"showRoundedNumbers\":true,\"chartSpecific\":{}},\"axisProperties\":{\"32286644-696b-417a-ada7-11a9a350df17\":{\"linkedColumns\":[\"Total Revenue\"],\"axisType\":\"Y\",\"isOpposite\":false},\"d3525ac6-c098-479a-a086-dfbde7919d6d\":{\"linkedColumns\":[\"Color\"],\"axisType\":\"X\"}},\"version\":\"V2.1\",\"columnProperties\":{\"Color\":{},\"Total Revenue\":{}}}"
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"gridLines\": {},\"responsiveLayoutPreference\": \"USER_PREFERRED_ON\",\"chartSpecific\": {\"dataFieldArea\": \"column\"}},\"columnProperties\": [{\"columnId\": \"Total Revenue\",\"columnProperty\": {}},{\"columnId\": \"Color\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"32286644-696b-417a-ada7-11a9a350df17\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Revenue\"],\"isOpposite\": false}},{\"id\": \"d3525ac6-c098-479a-a086-dfbde7919d6d\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Color\"]}}]}"
+      display_mode: TABLE_MODE
+    viz_guid: 95e89ece-6623-4250-a24a-37df06f1fa58
+  - id: Viz_3
+    answer:
+      name: Brand Revenue II
+      description: Annual Brand Revenue Table and Revenue Distribution by Brand Column Chart
+      tables:
+      - id: DATE
+        name: DATE
+      - id: LINEORDER
+        name: LINEORDER
+      - id: PART
+        name: PART
+      joins:
+      - id: Lineorder PartKey - Part PartKey
+        name: Lineorder PartKey - Part PartKey
+        source: LINEORDER
+        destination: PART
+      - id: Commit Date - Datekey
+        name: Commit Date - Datekey
+        source: LINEORDER
+        destination: DATE
+      table_paths:
+      - id: DATE_1
+        table: DATE
+        join_path:
+        - join:
+          - Commit Date - Datekey
+      - id: LINEORDER_1
+        table: LINEORDER
+        join_path:
+        - {}
+      - id: PART_1
+        table: PART
+        join_path:
+        - join:
+          - Lineorder PartKey - Part PartKey
+      search_query: "[LINEORDER_1::Revenue] by [PART_1::Brand1] [DATE_1::Year]"
+      answer_columns:
+      - name: Total Revenue
+      - name: Brand1
+      - name: Year
+      table:
+        table_columns:
+        - column_id: Brand1
+          headline_aggregation: COUNT_DISTINCT
+        - column_id: Year
+          headline_aggregation: COUNT_DISTINCT
+        - column_id: Total Revenue
+          headline_aggregation: SUM
+        ordered_column_ids:
+        - Brand1
+        - Year
+        - Total Revenue
+        client_state: "{\"wrapTableHeader\":true}"
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\",\"wrapTableHeader\": true,\"columnProperties\": [{\"columnId\": \"Brand1\",\"columnProperty\": {}},{\"columnId\": \"Year\",\"columnProperty\": {}},{\"columnId\": \"Total Revenue\",\"columnProperty\": {}}]}"
+      chart:
+        type: COLUMN
+        chart_columns:
+        - column_id: Brand1
+        - column_id: Year
+        - column_id: Total Revenue
+        axis_configs:
+        - x:
+          - Brand1
+          "y":
+          - Total Revenue
+          color:
+          - Year
+        client_state: "{\"chartProperties\":{\"gridLines\":{},\"showRoundedNumbers\":true,\"chartSpecific\":{}},\"axisProperties\":{\"db4fec74-733b-493f-beba-eecf7ea2d357\":{\"linkedColumns\":[\"Total Revenue\"],\"axisType\":\"Y\",\"isOpposite\":false},\"52557bbd-7a0f-4b18-800b-91be52dadb67\":{\"linkedColumns\":[\"Brand1\"],\"axisType\":\"X\"}},\"systemSeriesColors\":{\"1992\":\"#FCC838\",\"1993\":\"#48D1E0\",\"1994\":\"#2E75F0\"},\"version\":\"V2.1\",\"columnProperties\":{\"Brand1\":{},\"Year\":{},\"Total Revenue\":{}}}"
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"gridLines\": {},\"responsiveLayoutPreference\": \"USER_PREFERRED_ON\",\"chartSpecific\": {\"dataFieldArea\": \"column\"}},\"columnProperties\": [{\"columnId\": \"Brand1\",\"columnProperty\": {}},{\"columnId\": \"Year\",\"columnProperty\": {}},{\"columnId\": \"Total Revenue\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"db4fec74-733b-493f-beba-eecf7ea2d357\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Revenue\"],\"isOpposite\": false}},{\"id\": \"52557bbd-7a0f-4b18-800b-91be52dadb67\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Brand1\"]}}],\"systemSeriesColors\": [{\"serieName\": \"1992\",\"color\": \"#FCC838\"},{\"serieName\": \"1993\",\"color\": \"#48D1E0\"},{\"serieName\": \"1994\",\"color\": \"#2E75F0\"},{\"serieName\": \"1995\",\"color\": \"#71A1F4\"},{\"serieName\": \"1996\",\"color\": \"#06BF7F\"},{\"serieName\": \"1997\",\"color\": \"#FCD977\"},{\"serieName\": \"1998\",\"color\": \"#82DFE9\"}]}"
+      display_mode: CHART_MODE
+      client_state: "{\"answerMode\":\"advanced\"}"
+    viz_guid: cf879ec2-b266-4f59-9a6f-ab6030239665
+  - id: Viz_4
+    answer:
+      name: Brand Revenue
+      tables:
+      - id: LINEORDER
+        name: LINEORDER
+      - id: PART
+        name: PART
+      - id: SUPPLIER
+        name: SUPPLIER
+      joins:
+      - id: Lineorder PartKey - Part PartKey
+        name: Lineorder PartKey - Part PartKey
+        source: LINEORDER
+        destination: PART
+      - id: Lineorder Suppkey - Supplier SuppKey
+        name: Lineorder Suppkey - Supplier SuppKey
+        source: LINEORDER
+        destination: SUPPLIER
+      table_paths:
+      - id: LINEORDER_1
+        table: LINEORDER
+        join_path:
+        - {}
+      - id: PART_1
+        table: PART
+        join_path:
+        - join:
+          - Lineorder PartKey - Part PartKey
+      - id: SUPPLIER_1
+        table: SUPPLIER
+        join_path:
+        - join:
+          - Lineorder Suppkey - Supplier SuppKey
+      search_query: "[LINEORDER_1::Revenue] by [PART_1::Brand1] for [PART_1::Category] 'mfgr#12' for [SUPPLIER_1::Supplier Region] 'america'"
+      answer_columns:
+      - name: Total Revenue
+      - name: Brand1
+      table:
+        table_columns:
+        - column_id: Brand1
+          headline_aggregation: COUNT_DISTINCT
+        - column_id: Total Revenue
+          headline_aggregation: SUM
+        ordered_column_ids:
+        - Brand1
+        - Total Revenue
+        client_state: "{\"wrapTableHeader\":true}"
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\",\"wrapTableHeader\": true,\"columnProperties\": [{\"columnId\": \"Brand1\",\"columnProperty\": {}},{\"columnId\": \"Total Revenue\",\"columnProperty\": {}}]}"
+      chart:
+        type: COLUMN
+        chart_columns:
+        - column_id: Brand1
+        - column_id: Total Revenue
+        axis_configs:
+        - x:
+          - Brand1
+          "y":
+          - Total Revenue
+        client_state: "{\"chartProperties\":{\"gridLines\":{},\"showRoundedNumbers\":true,\"chartSpecific\":{}},\"axisProperties\":{\"8bf47901-5404-49c0-a18b-f3ff6821bbc3\":{\"linkedColumns\":[\"Total Revenue\"],\"axisType\":\"Y\",\"isOpposite\":false},\"fd3ab9e8-7fbf-4368-a579-0387e9c694d0\":{\"linkedColumns\":[\"Brand1\"],\"axisType\":\"X\"}},\"systemSeriesColors\":{\"Total Revenue\":\"#8C62F5\"},\"version\":\"V2.1\",\"columnProperties\":{\"Brand1\":{},\"Total Revenue\":{}}}"
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"gridLines\": {},\"responsiveLayoutPreference\": \"USER_PREFERRED_ON\",\"chartSpecific\": {\"dataFieldArea\": \"column\"}},\"columnProperties\": [{\"columnId\": \"Brand1\",\"columnProperty\": {}},{\"columnId\": \"Total Revenue\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"8bf47901-5404-49c0-a18b-f3ff6821bbc3\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Revenue\"],\"isOpposite\": false}},{\"id\": \"fd3ab9e8-7fbf-4368-a579-0387e9c694d0\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Brand1\"]}}],\"systemSeriesColors\": [{\"serieName\": \"Total Revenue\",\"color\": \"#8C62F5\"}]}"
+      display_mode: CHART_MODE
+      client_state: "{\"answerMode\":\"advanced\"}"
+    viz_guid: 5a0066d0-bdf2-409d-a55a-0db15e9fc578
+  - id: Viz_5
+    answer:
+      name: Brand Revenue Trend
+      description: Yearly Revenue analysis by Brand for specific Category and Region; Nested Visualizations
+      tables:
+      - id: LINEORDER
+        name: LINEORDER
+      - id: PART
+        name: PART
+      - id: SUPPLIER
+        name: SUPPLIER
+      joins:
+      - id: Lineorder PartKey - Part PartKey
+        name: Lineorder PartKey - Part PartKey
+        source: LINEORDER
+        destination: PART
+      - id: Lineorder Suppkey - Supplier SuppKey
+        name: Lineorder Suppkey - Supplier SuppKey
+        source: LINEORDER
+        destination: SUPPLIER
+      table_paths:
+      - id: LINEORDER_1
+        table: LINEORDER
+        join_path:
+        - {}
+      - id: PART_1
+        table: PART
+        join_path:
+        - join:
+          - Lineorder PartKey - Part PartKey
+      - id: SUPPLIER_1
+        table: SUPPLIER
+        join_path:
+        - join:
+          - Lineorder Suppkey - Supplier SuppKey
+      search_query: "[LINEORDER_1::Revenue] by [PART_1::Brand1] [PART_1::Category] [PART_1::Category].mfgr#12 for [SUPPLIER_1::Supplier Region] 'america'"
+      answer_columns:
+      - name: Total Revenue
+      - name: Brand1
+      - name: Category
+      table:
+        table_columns:
+        - column_id: Brand1
+          headline_aggregation: COUNT_DISTINCT
+        - column_id: Category
+          headline_aggregation: COUNT_DISTINCT
+        - column_id: Total Revenue
+          headline_aggregation: SUM
+        ordered_column_ids:
+        - Brand1
+        - Category
+        - Total Revenue
+        client_state: "{\"wrapTableHeader\":true}"
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\",\"wrapTableHeader\": true,\"columnProperties\": [{\"columnId\": \"Brand1\",\"columnProperty\": {}},{\"columnId\": \"Category\",\"columnProperty\": {}},{\"columnId\": \"Total Revenue\",\"columnProperty\": {}}]}"
+      chart:
+        type: COLUMN
+        chart_columns:
+        - column_id: Brand1
+        - column_id: Category
+        - column_id: Total Revenue
+        axis_configs:
+        - x:
+          - Brand1
+          "y":
+          - Total Revenue
+          color:
+          - Category
+        client_state: "{\"chartProperties\":{\"gridLines\":{},\"showRoundedNumbers\":true,\"chartSpecific\":{}},\"axisProperties\":{\"7ef3ed05-c624-46a9-84f1-8d5c98c22f2a\":{\"linkedColumns\":[\"Total Revenue\"],\"axisType\":\"Y\",\"isOpposite\":false},\"fa1f2448-7d90-4a1d-a09c-3e23659f0650\":{\"linkedColumns\":[\"Brand1\"],\"axisType\":\"X\"}},\"systemSeriesColors\":{\"mfgr#12\":\"#FF8142\"},\"version\":\"V2.1\",\"columnProperties\":{\"Brand1\":{},\"Category\":{},\"Total Revenue\":{}}}"
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"gridLines\": {},\"responsiveLayoutPreference\": \"USER_PREFERRED_ON\",\"chartSpecific\": {\"dataFieldArea\": \"column\"}},\"columnProperties\": [{\"columnId\": \"Total Revenue\",\"columnProperty\": {}},{\"columnId\": \"Category\",\"columnProperty\": {}},{\"columnId\": \"Brand1\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"7ef3ed05-c624-46a9-84f1-8d5c98c22f2a\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Revenue\"],\"isOpposite\": false}},{\"id\": \"fa1f2448-7d90-4a1d-a09c-3e23659f0650\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Brand1\"]}}],\"systemSeriesColors\": [{\"serieName\": \"mfgr#12\",\"color\": \"#FF8142\"}]}"
+      display_mode: CHART_MODE
+      client_state: "{\"answerMode\":\"advanced\"}"
+    viz_guid: 81551dec-2487-4889-8918-3864ca43ca55
+  layout:
+    tiles:
+    - visualization_id: Viz_1
+      size: MEDIUM
+    - visualization_id: Viz_3
+      size: MEDIUM
+    - visualization_id: Viz_2
+      size: LARGE
+    - visualization_id: Viz_4
+      size: MEDIUM
+    - visualization_id: Viz_5
+      size: MEDIUM
