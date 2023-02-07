@@ -305,6 +305,78 @@ liveboard:
       display_mode: CHART_MODE
       client_state: "{\"answerMode\":\"advanced\"}"
     viz_guid: 81551dec-2487-4889-8918-3864ca43ca55
+  - id: Viz_6
+    answer:
+      name: Copy of Brand Revenue Trend
+      description: Yearly Revenue analysis by Brand for specific Category and Region; Nested Visualizations
+      tables:
+      - id: LINEORDER
+        name: LINEORDER
+      - id: PART
+        name: PART
+      - id: SUPPLIER
+        name: SUPPLIER
+      joins:
+      - id: Lineorder PartKey - Part PartKey
+        name: Lineorder PartKey - Part PartKey
+        source: LINEORDER
+        destination: PART
+      - id: Lineorder Suppkey - Supplier SuppKey
+        name: Lineorder Suppkey - Supplier SuppKey
+        source: LINEORDER
+        destination: SUPPLIER
+      table_paths:
+      - id: LINEORDER_1
+        table: LINEORDER
+        join_path:
+        - {}
+      - id: PART_1
+        table: PART
+        join_path:
+        - join:
+          - Lineorder PartKey - Part PartKey
+      - id: SUPPLIER_1
+        table: SUPPLIER
+        join_path:
+        - join:
+          - Lineorder Suppkey - Supplier SuppKey
+      search_query: "[LINEORDER_1::Revenue] by [PART_1::Brand1] [PART_1::Category] [PART_1::Category].mfgr#12 for [SUPPLIER_1::Supplier Region] 'america'"
+      answer_columns:
+      - name: Total Revenue
+      - name: Brand1
+      - name: Category
+      table:
+        table_columns:
+        - column_id: Brand1
+          headline_aggregation: COUNT_DISTINCT
+        - column_id: Category
+          headline_aggregation: COUNT_DISTINCT
+        - column_id: Total Revenue
+          headline_aggregation: SUM
+        ordered_column_ids:
+        - Brand1
+        - Category
+        - Total Revenue
+        client_state: "{\"wrapTableHeader\":true}"
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\",\"wrapTableHeader\": true,\"columnProperties\": [{\"columnId\": \"Brand1\",\"columnProperty\": {}},{\"columnId\": \"Category\",\"columnProperty\": {}},{\"columnId\": \"Total Revenue\",\"columnProperty\": {}}]}"
+      chart:
+        type: LINE
+        chart_columns:
+        - column_id: Brand1
+        - column_id: Category
+        - column_id: Total Revenue
+        axis_configs:
+        - x:
+          - Brand1
+          "y":
+          - Total Revenue
+          color:
+          - Category
+        client_state: "{\"chartProperties\":{\"gridLines\":{},\"showRoundedNumbers\":true,\"chartSpecific\":{}},\"axisProperties\":{\"7ef3ed05-c624-46a9-84f1-8d5c98c22f2a\":{\"linkedColumns\":[\"Total Revenue\"],\"axisType\":\"Y\",\"isOpposite\":false},\"fa1f2448-7d90-4a1d-a09c-3e23659f0650\":{\"linkedColumns\":[\"Brand1\"],\"axisType\":\"X\"}},\"systemSeriesColors\":{\"mfgr#12\":\"#FF8142\"},\"version\":\"V2.1\",\"columnProperties\":{\"Brand1\":{},\"Category\":{},\"Total Revenue\":{}}}"
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"gridLines\": {},\"responsiveLayoutPreference\": \"USER_PREFERRED_ON\",\"chartSpecific\": {\"dataFieldArea\": \"column\"}},\"columnProperties\": [{\"columnId\": \"Total Revenue\",\"columnProperty\": {}},{\"columnId\": \"Category\",\"columnProperty\": {}},{\"columnId\": \"Brand1\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"7ef3ed05-c624-46a9-84f1-8d5c98c22f2a\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Revenue\"],\"isOpposite\": false}},{\"id\": \"fa1f2448-7d90-4a1d-a09c-3e23659f0650\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Brand1\"]}}],\"systemSeriesColors\": [{\"serieName\": \"mfgr#12\",\"color\": \"#06BF7F\"}]}"
+      display_mode: CHART_MODE
+      client_state: "{\"answerMode\":\"advanced\"}"
+    viz_guid: 4a513014-8437-41fa-aa8b-99b6fb8028d5
   layout:
     tiles:
     - visualization_id: Viz_1
